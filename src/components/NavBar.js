@@ -27,7 +27,7 @@ const NavBar = () => {
                     </Nav>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="https://github.com/" target="_blank">GitHub</NavLink>
+                            <NavLink href="https://github.com/AdiletHacker/Coronavirus_tracker" target="_blank">GitHub</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>

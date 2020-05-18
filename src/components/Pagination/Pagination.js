@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import ReactPaginate from 'react-paginate';
 import "./Pagination.scss";
 import { connect } from 'react-redux';
@@ -9,6 +9,10 @@ const Pagination = (props) => {
     const [countriesPerPage] = useState(10);
     const pageCount = Math.ceil(props.searchCountries.length / countriesPerPage);
 
+    const handlePageClick = (e) => {
+        setCurrentPage(e.selected);
+    };
+
     const commaArr = props.searchCountries.map(country => {
         for (const key in country) {
             if (Number.isInteger(country[key])) {
@@ -18,9 +22,6 @@ const Pagination = (props) => {
         return country;
     });
 
-    const handlePageClick = (e) => {
-        setCurrentPage(e.selected);
-    };
     const lastCountryIndex = (currentPage + 1) * countriesPerPage;
     const firstCountryIndex = lastCountryIndex - countriesPerPage;
     const currentCountries = commaArr.slice(firstCountryIndex, lastCountryIndex);
@@ -44,8 +45,8 @@ const Pagination = (props) => {
             breakClassName={"break-me"}
             pageCount={pageCount}
             initialPage={0}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={3}
             onPageChange={handlePageClick}
             containerClassName={"pagination"}
             subContainerClassName={"pages pagination"}

@@ -1,38 +1,54 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import Chart from "react-apexcharts";
+import { Bar } from 'react-chartjs-2';
 
 const HighCharts = (props) => {
-    const countries = props.countries.slice(1, 21);
+    const countries = props.countries.slice(1, 16);
 
-    const state = {
-        options: {
-            chart: {
-                id: "basic-bar"
-            },
-            xaxis: {
-                categories: countries.map(el => el.country)
-            }
-        },
-        series: [
-            {
-                name: "series",
-                data: countries.map(el => el.cases)
-            }
-        ]
+    const data = {
+        labels: countries.map(el => el.country),
+        datasets: [{
+            backgroundColor: '#2969FF',
+            borderColor: '#2969FF',
+            borderWidth: 1,
+            data: countries.map(el => el.cases)
+        }]
     };
 
-    return (
-        <Chart
-            options={state.options}
-            series={state.series}
-            type="bar"
-            width="100%"
-        />
-    );
-};
+    const options = {
+        fontColor: "#000",
+        title: {
+            display: true,
+            text: "15 most infected countries",
+            fontSize: 25,
+            padding: 20,
+            fontColor: "silver",
+        },
+        legend: {
+            display: false
+        },
+        scales: {
+            xAxes: [{
+                ticks: {
+                    fontColor: "silver",
+                },
+                stacked: true
+            }],
+            yAxes: [{
+                ticks: {
+                    stepSize: 1000000,
+                    beginAtZero: true,
+                    fontColor: "silver",
+                },
+                stacked: true
+            }]
+        }
+    };
+    return <Fragment>
+        <Bar data={data} options={options} />
+    </Fragment>
 
-
+}
 
 const mapStateToProps = (state) => ({
     countries: state.virus_data.countries

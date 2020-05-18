@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
 import { virus_data } from "../store/virus_data";
 

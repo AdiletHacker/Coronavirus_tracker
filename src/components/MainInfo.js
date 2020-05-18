@@ -1,5 +1,5 @@
-import React, { Fragment, useEffect } from 'react';
-import { Card, Container, CardTitle, CardSubtitle, CardText, Row, Col, Jumbotron } from 'reactstrap';
+import React, { Fragment } from 'react';
+import { Card, Container, CardTitle, CardSubtitle, CardText, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
 import HighCharts from './HighCharts';
 
@@ -12,7 +12,7 @@ const MainInfo = (props) => {
 
     return <Fragment>
         <Container>
-            <Row>
+            <Row className="mb-5">
                 <Col sm="4" className="mb-3">
                     <Card body inverse style={{ backgroundColor: "#333" }}>
                         <CardSubtitle>Global</CardSubtitle>
@@ -36,7 +36,6 @@ const MainInfo = (props) => {
                 </Col>
             </Row>
 
-            <h1 className="mt-5" style={{ textAlign: "center", color: "white" }}>20 most infected countries</h1>
             <HighCharts />
         </Container>
     </Fragment>

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Card, Container, CardTitle, CardSubtitle, Row, Col } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
 import Pagination from './Pagination/Pagination';
 

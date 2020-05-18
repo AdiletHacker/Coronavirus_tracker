@@ -16,7 +16,6 @@ const HighCharts = (props) => {
     };
 
     const options = {
-        fontColor: "#000",
         title: {
             display: true,
             text: "15 most infected countries",
